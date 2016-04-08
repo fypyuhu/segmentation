@@ -52,7 +52,7 @@ public class MaxumuimMatching extends MatchingAlgorithem{
                 i++;
                 flag = true;
             }
-            //i++;
+       //    i++;
             if(sub == null &&st.size()==0 )
                 break;
             if(sub == null || (i == n  &&st.size()!=0)){
@@ -89,7 +89,7 @@ public class MaxumuimMatching extends MatchingAlgorithem{
    String str= "";
         
        for(int i = 0 ; i < st.size();i++){
-           str += st.get(i).toString();
+           str += st.get(i).toString() + "|";
        
        }
    
