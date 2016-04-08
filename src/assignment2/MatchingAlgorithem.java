@@ -66,7 +66,7 @@ public abstract class MatchingAlgorithem implements Algorithem{
     protected void printFoundedList(){
         System.out.print("[");
         for(int i = 0 ; i < founded.size();i++){
-                    System.out.print(founded.get(i).token+":"+founded.get(i).e+",");
+             //       System.out.print(founded.get(i).token+":"+founded.get(i).e+",");
 
         }
         System.out.print("]");

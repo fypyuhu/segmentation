@@ -46,16 +46,22 @@ public class MaxumuimMatching extends MatchingAlgorithem{
             if(sub != null){
                 st.push(sub);
                 System.out.println("o = " + st.toString());
-                i = i +( sub.length() -1);
+                i = i + ( sub.length() -1);
+                
+                i++;
             }
-            i++;
-            
-            if(i == n &&st.size()!=0){
-               appendOuputToNextLine(st.toString());
+            //i++;
+            if(sub == null &&st.size()==0 )
+                break;
+            if(sub==null || (i == n  &&st.size()!=0)){
+              
+                appendOuputToNextLine(st.toString());
                System.out.println("output = " + output);
+              
                pre = st.firstElement().toString();
                st.pop();
-               i = i - pre.length() +1;
+            
+               i = n- (n - countS());
                
             }
             
@@ -65,4 +71,14 @@ public class MaxumuimMatching extends MatchingAlgorithem{
         
     
     }
+    
+    int countS(){
+       int n = 0;
+        
+       for(int i = 0 ; i < st.size();i++){
+           n += st.get(i).toString().length();
+       
+       }
+        return n;
+   }
 }
