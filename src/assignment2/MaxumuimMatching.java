@@ -13,39 +13,53 @@ import java.util.Stack;
  * @author 12003065165
  */
 public class MaxumuimMatching extends MatchingAlgorithem{
+    Stack st = new Stack();
 
     @Override
+    
     public String perform(String input) {
-       do{
+       input = normalize(input);
+
+       
             algo(input);
-            appendOuputToNextLine(o);
+            appendOuputToNextLine(st.toString());
            
-       }while(o!="");
+     
         
         return output;
     }
     public void algo(String input){  
         o = "";
          
-        input = normalize(input);
        
         int i = 0;
         int n = input.length();
-        
+        String token = null;
         String sub = null;
-          
+        String pre = null;  
         while(i<n){
            sub = input.substring(i,n);
-           
-           System.out.println("token = "+ sub);
-
+                      System.out.println("token = "+ sub);
+            token = new String(sub);            
             sub = lookup(sub);
+            
             if(sub != null){
-                appendO(sub);
-                System.out.println("o = " + o);
-                i = i + sub.length() -1;
+                st.push(sub);
+                System.out.println("o = " + st.toString());
+                i = i +( sub.length() -1);
             }
             i++;
+            
+            if(i == n &&st.size()!=0){
+               appendOuputToNextLine(st.toString());
+               System.out.println("output = " + output);
+               pre = st.firstElement().toString();
+               st.pop();
+               i = i - pre.length() +1;
+               
+            }
+            
+            
         }
         
         
