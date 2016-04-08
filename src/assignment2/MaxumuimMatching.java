@@ -37,11 +37,12 @@ public class MaxumuimMatching extends MatchingAlgorithem{
         String token = null;
         String sub = null;
         String pre = null;  
+        boolean flag = false;
         while(i<n){
            sub = input.substring(i,n);
                       System.out.println("token = "+ sub);
             token = new String(sub);            
-            sub = lookup(sub);
+            sub = lookup(sub,preString());
             
             if(sub != null){
                 st.push(sub);
@@ -49,13 +50,16 @@ public class MaxumuimMatching extends MatchingAlgorithem{
                 i = i + ( sub.length() -1);
                 
                 i++;
+                flag = true;
             }
             //i++;
             if(sub == null &&st.size()==0 )
                 break;
-            if(sub==null || (i == n  &&st.size()!=0)){
-              
-                appendOuputToNextLine(st.toString());
+            if(sub == null || (i == n  &&st.size()!=0)){
+              if(flag){
+               appendOuputToNextLine(st.toString());
+              flag = false;
+              }
                System.out.println("output = " + output);
               
                pre = st.firstElement().toString();
@@ -80,5 +84,15 @@ public class MaxumuimMatching extends MatchingAlgorithem{
        
        }
         return n;
+   }
+   String preString(){
+   String str= "";
+        
+       for(int i = 0 ; i < st.size();i++){
+           str += st.get(i).toString();
+       
+       }
+   
+   return str;
    }
 }

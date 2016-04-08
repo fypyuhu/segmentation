@@ -51,10 +51,10 @@ public abstract class MatchingAlgorithem implements Algorithem{
         
     }
     
-    private int checkFounded(String token){
+    private int checkFounded(String token,String s){
         int e = -1;
         for(int i = 0 ; i<founded.size();i++){
-            if(founded.get(i).token.equals(token)){
+            if(founded.get(i).token.equals(token) && founded.get(i).s.equals(s)){
                 
                
                 e =  founded.get(i).e;
@@ -72,14 +72,14 @@ public abstract class MatchingAlgorithem implements Algorithem{
         System.out.print("]");
         
     }
-    protected String lookup(String token){
+    protected String lookup(String token,String s){
         String sub = null;
         
             int h = 1;
             int n = token.length();
             int p = -1;
             printFoundedList();
-            int e = checkFounded(token);
+            int e = checkFounded(token,s);
             System.out.println("check  "+ e);
             if(e == -1 )
                     e = 0;
@@ -94,7 +94,7 @@ public abstract class MatchingAlgorithem implements Algorithem{
                 p = search(sub,e);
                 if(p != -1){
                     System.out.println("found "+sub+" at "+ p);
-                    founded.add(new Token(token,p));
+                    founded.add(new Token(token,p,s));
                     return sub;
                 }
                 

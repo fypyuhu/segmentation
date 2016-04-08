@@ -12,10 +12,12 @@ package assignment2;
 public class Token {
     String token ;
     int e ;
+    String s;
 
-    public Token(String token,int e) {
+    public Token(String token,int e,String s) {
         this.token = token;
         this.e = e;
+        this.s = s;
     }
     
 }
